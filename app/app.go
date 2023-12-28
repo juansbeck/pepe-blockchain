@@ -158,7 +158,7 @@ func init() {
 		panic(err)
 	}
 
-	DefaultNodeHome = filepath.Join(userHomeDir, ".usdxd")
+	DefaultNodeHome = filepath.Join(userHomeDir, ".usdtped")
 
 	// manually update the power reduction by replacing micro (u) -> atto (a) evmos
 	sdk.DefaultPowerReduction = ethermint.PowerReduction
@@ -170,7 +170,7 @@ func init() {
 }
 
 // Name defines the application binary name
-const Name = "usdxd"
+const Name = "usdtped"
 
 var (
 	// DefaultNodeHome default home directories for the application daemon

@@ -1,4 +1,4 @@
-# usdx-evm Docs
+# usdtpe-evm Docs
 
 
 ### Ports 
@@ -13,13 +13,13 @@
 
 ### Chain details
 
-- Network name: usdx Network
+- Network name: usdtpe Network
 - chainId: 323
-- Symbol: usdx
+- Symbol: usdtpe
 - RPC: rpc1.m20chain.com
 - Explorer: explorer.m20chain.com
 
-# usdxchain deployment script
+# usdtpechain deployment script
 
 ```
 sudo apt update
@@ -44,7 +44,7 @@ go version
 ## Install the executables
 
 ```
-sudo rm -rf ~/.usdx
+sudo rm -rf ~/.usdtpe
 make install
 
 clear
@@ -52,15 +52,15 @@ clear
 ## Running chain
 ./local.sh
 
-## Create the service file "/etc/systemd/system/usdxd.service" with the following content
+## Create the service file "/etc/systemd/system/usdtped.service" with the following content
 ```
-sudo nano /etc/systemd/system/usdxd.service
+sudo nano /etc/systemd/system/usdtped.service
 ```
 
 ## paste following content
 ```
 [Unit]
-Description=usdxd
+Description=usdtped
 Requires=network-online.target
 After=network-online.target
 
@@ -69,12 +69,12 @@ Restart=on-failure
 RestartSec=3
 User=root
 Group=root
-Environment=DAEMON_NAME=usdxd
-Environment=DAEMON_HOME=/root/.usdx
+Environment=DAEMON_NAME=usdtped
+Environment=DAEMON_HOME=/root/.usdtpe
 Environment=DAEMON_ALLOW_DOWNLOAD_BINARIES=on
 Environment=DAEMON_RESTART_AFTER_UPGRADE=on
 PermissionsStartOnly=true
-ExecStart=/root/go/bin/usdx start --pruning="nothing"
+ExecStart=/root/go/bin/usdtpe start --pruning="nothing"
 ExecReload=/bin/kill -HUP $MAINPID
 KillSignal=SIGTERM
 LimitNOFILE=4096
@@ -83,14 +83,14 @@ LimitNOFILE=4096
 WantedBy=multi-user.target
 ## start chain node ##
 ```
-sudo systemctl enable usdxd
-sudo systemctl start usdxd
+sudo systemctl enable usdtped
+sudo systemctl start usdtped
 ```
 ## stop chain node ##
 ```
-sudo systemctl stop usdxd
+sudo systemctl stop usdtped
 ```
-# Adding usdx chain on Metamask
+# Adding usdtpe chain on Metamask
 ## on metamask
 ![Click Add Network button ](assets/1.png)
 ![Click Add Network button ](assets/2.png)

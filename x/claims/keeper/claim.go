@@ -9,9 +9,9 @@ import (
 	"github.com/evmos/evmos/v10/x/claims/types"
 )
 
-// ClaiusdxsForAction removes the claimable amount entry from a claims record
+// ClaiusdtpesForAction removes the claimable amount entry from a claims record
 // and transfers it to the user's account
-func (k Keeper) ClaiusdxsForAction(
+func (k Keeper) ClaiusdtpesForAction(
 	ctx sdk.Context,
 	addr sdk.AccAddress,
 	claimsRecord types.ClaimsRecord,

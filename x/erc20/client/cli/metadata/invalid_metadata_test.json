@@ -4,7 +4,7 @@
       "description": 1,
       "denom_units": [
         {
-          "denom": "usdx",
+          "denom": "usdtpe",
           "exponent": 0
         },
         {
@@ -12,9 +12,9 @@
           "exponent": 18
         }
       ],
-      "base": "usdx",
-      "display": "usdx",
-      "name": "usdx",
+      "base": "usdtpe",
+      "display": "usdtpe",
+      "name": "usdtpe",
       "symbol": "EVMOS"
     }
   ]

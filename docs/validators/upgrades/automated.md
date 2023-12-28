@@ -26,27 +26,27 @@ Set up the Cosmovisor environment variables. We recommend setting these in your 
 
 ```bash
 echo "# Setup Cosmovisor" >> ~/.profile
-echo "export DAEMON_NAME=usdxd" >> ~/.profile
-echo "export DAEMON_HOME=$HOME/.usdxd" >> ~/.profile
+echo "export DAEMON_NAME=usdtped" >> ~/.profile
+echo "export DAEMON_HOME=$HOME/.usdtped" >> ~/.profile
 source ~/.profile
 ```
 
-After this, you must make the necessary folders for `cosmosvisor` in your `DAEMON_HOME` directory (`~/.usdxd`) and copy over the current binary.
+After this, you must make the necessary folders for `cosmosvisor` in your `DAEMON_HOME` directory (`~/.usdtped`) and copy over the current binary.
 
 ```bash
-mkdir -p ~/.usdxd/cosmovisor
-mkdir -p ~/.usdxd/cosmovisor/genesis
-mkdir -p ~/.usdxd/cosmovisor/genesis/bin
-mkdir -p ~/.usdxd/cosmovisor/upgrades
+mkdir -p ~/.usdtped/cosmovisor
+mkdir -p ~/.usdtped/cosmovisor/genesis
+mkdir -p ~/.usdtped/cosmovisor/genesis/bin
+mkdir -p ~/.usdtped/cosmovisor/upgrades
 
-cp $GOPATH/bin/usdxd ~/.usdxd/cosmovisor/genesis/bin
+cp $GOPATH/bin/usdtped ~/.usdtped/cosmovisor/genesis/bin
 ```
 
-To check that you did this correctly, ensure your versions of `cosmovisor` and `usdxd` are the same:
+To check that you did this correctly, ensure your versions of `cosmovisor` and `usdtped` are the same:
 
 ```bash
 cosmovisor run version
-usdxd version
+usdtped version
 ```
 
 ### 2. Download the Evmos release
@@ -79,11 +79,11 @@ cosmovisor/
 ├── current/   # either genesis or upgrades/<name>
 ├── genesis
 │   └── bin
-│       └── usdxd
+│       └── usdtped
 └── upgrades
     └── v3.0.0
         ├── bin
-        │   └── usdxd
+        │   └── usdtped
         └── upgrade-info.json
 ```
 
@@ -112,7 +112,7 @@ cosmovisor run start
 You will need some way to keep the process always running. If you're on linux, you can do this by creating a service.
 
 ```bash
-sudo tee /etc/systemd/system/usdxd.service > /dev/null <<EOF
+sudo tee /etc/systemd/system/usdtped.service > /dev/null <<EOF
 [Unit]
 Description=Evmos Daemon
 After=network-online.target
@@ -124,8 +124,8 @@ Restart=always
 RestartSec=3
 LimitNOFILE=infinity
 
-Environment="DAEMON_HOME=$HOME/.usdxd"
-Environment="DAEMON_NAME=usdxd"
+Environment="DAEMON_HOME=$HOME/.usdtped"
+Environment="DAEMON_NAME=usdtped"
 Environment="DAEMON_ALLOW_DOWNLOAD_BINARIES=false"
 Environment="DAEMON_RESTART_AFTER_UPGRADE=true"
 
@@ -138,12 +138,12 @@ Then update and start the node
 
 ```bash
 sudo -S systemctl daemon-reload
-sudo -S systemctl enable usdxd
-sudo -S systemctl start usdxd
+sudo -S systemctl enable usdtped
+sudo -S systemctl start usdtped
 ```
 
 You can check the status with:
 
 ```bash
-systemctl status usdxd
+systemctl status usdtped
 ```

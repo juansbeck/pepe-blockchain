@@ -68,55 +68,55 @@ make localnet-stop
 ### Configuration
 
 The `make localnet-start` creates files for a 4-node testnet in `./build` by
-calling the `usdxd testnet` command. This outputs a handful of files in the
+calling the `usdtped testnet` command. This outputs a handful of files in the
 `./build` directory:
 
 ```bash
 tree -L 3 build/
 
 build/
-├── usdxd
-├── usdxd
+├── usdtped
+├── usdtped
 ├── gentxs
 │   ├── node0.json
 │   ├── node1.json
 │   ├── node2.json
 │   └── node3.json
 ├── node0
-│   ├── usdxd
+│   ├── usdtped
 │   │   ├── key_seed.json
 │   │   └── keyring-test-cosmos
-│   └── usdxd
+│   └── usdtped
 │       ├── config
 │       ├── data
-│       └── usdxd.log
+│       └── usdtped.log
 ├── node1
-│   ├── usdxd
+│   ├── usdtped
 │   │   ├── key_seed.json
 │   │   └── keyring-test-cosmos
-│   └── usdxd
+│   └── usdtped
 │       ├── config
 │       ├── data
-│       └── usdxd.log
+│       └── usdtped.log
 ├── node2
-│   ├── usdxd
+│   ├── usdtped
 │   │   ├── key_seed.json
 │   │   └── keyring-test-cosmos
-│   └── usdxd
+│   └── usdtped
 │       ├── config
 │       ├── data
-│       └── usdxd.log
+│       └── usdtped.log
 └── node3
-    ├── usdxd
+    ├── usdtped
     │   ├── key_seed.json
     │   └── keyring-test-cosmos
-    └── usdxd
+    └── usdtped
         ├── config
         ├── data
-        └── usdxd.log
+        └── usdtped.log
 ```
 
-Each `./build/nodeN` directory is mounted to the `/usdxd` directory in each container.
+Each `./build/nodeN` directory is mounted to the `/usdtped` directory in each container.
 
 ### Logging
 
@@ -124,10 +124,10 @@ In order to see the logs of a particular node you can use the following command:
 
 ```bash
 # node 0: daemon logs
-docker exec composednode0 tail usdxd.log
+docker exec composednode0 tail usdtped.log
 
 # node 0: REST & RPC logs
-docker exec composednode0 tail usdxd.log
+docker exec composednode0 tail usdtped.log
 ```
 
 The logs for the daemon will look like:
@@ -192,18 +192,18 @@ Additional instructions on how to interact with the WebSocket can be found on th
 
 ### Keys & Accounts
 
-To interact with `usdxd` and start querying state or creating txs, you use the
-`usdxd` directory of any given node as your `home`, for example:
+To interact with `usdtped` and start querying state or creating txs, you use the
+`usdtped` directory of any given node as your `home`, for example:
 
 ```bash
-usdxd keys list --home ./build/node0/usdxd
+usdtped keys list --home ./build/node0/usdtped
 ```
 
 Now that accounts exists, you may create new accounts and send those accounts
 funds!
 
 ::: tip
-**Note**: Each node's seed is located at `./build/nodeN/usdxd/key_seed.json` and can be restored to the CLI using the `usdxd keys add --restore` command
+**Note**: Each node's seed is located at `./build/nodeN/usdtped/key_seed.json` and can be restored to the CLI using the `usdtped keys add --restore` command
 :::
 
 ### Special Binaries

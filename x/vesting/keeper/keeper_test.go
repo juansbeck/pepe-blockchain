@@ -50,14 +50,14 @@ var (
 	participant     = tests.GenerateAddress()
 	participant2    = tests.GenerateAddress()
 	denomMint       = evm.DefaultEVMDenom
-	denousdx       = "acoin"
+	denousdtpe       = "acoin"
 	allocationRate  = int64(5)
 	mintAllocations = sdk.DecCoins{
 		sdk.NewDecCoinFromDec(denomMint, sdk.NewDecWithPrec(allocationRate, 2)),
 	}
 	allocations = sdk.DecCoins{
 		sdk.NewDecCoinFromDec(denomMint, sdk.NewDecWithPrec(allocationRate, 2)),
-		sdk.NewDecCoinFromDec(denousdx, sdk.NewDecWithPrec(allocationRate, 2)),
+		sdk.NewDecCoinFromDec(denousdtpe, sdk.NewDecWithPrec(allocationRate, 2)),
 	}
 	epochs        = uint32(10)
 	erc20Name     = "Coin Token"

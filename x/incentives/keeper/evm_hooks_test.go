@@ -132,7 +132,7 @@ func (suite *KeeperTestSuite) TestEvmHooksStoreTxGasUsed() {
 			suite.ensureHooksSet()
 
 			// Deploy Contract
-			contractAddr, err := suite.DeployContract(denousdx, "COIN", erc20Decimals)
+			contractAddr, err := suite.DeployContract(denousdtpe, "COIN", erc20Decimals)
 			suite.Require().NoError(err)
 			suite.Commit()
 

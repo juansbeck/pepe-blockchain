@@ -8,8 +8,8 @@
 ## USAGE RUNDOWN
 # Not for use on live nodes
 # For use when testing.
-# Assumes that ~/.usdxd doesn't exist
-# can be modified to suit your purposes if ~/.usdxd does already exist
+# Assumes that ~/.usdtped doesn't exist
+# can be modified to suit your purposes if ~/.usdtped does already exist
 
 
 set -uxe
@@ -31,11 +31,11 @@ go install ./...
 # go install -ldflags '-w -s -X github.com/cosmos/cosmos-sdk/types.DBBackend=boltdb' -tags boltdb ./...
 
 # Initialize chain.
-usdxd init test --chain-id compose_1-1
+usdtped init test --chain-id compose_1-1
 
 # Get Genesis
 wget https://archive.evmos.org/mainnet/genesis.json
-mv genesis.json ~/.usdxd/config/
+mv genesis.json ~/.usdtped/config/
 
 
 # Get "trust_hash" and "trust_height".
@@ -59,4 +59,4 @@ export composed_STATESYNC_TRUST_HASH=$TRUST_HASH
 export composed_P2P_SEEDS=$(curl -s https://raw.githubusercontent.com/cosmos/chain-registry/master/evmos/chain.json | jq -r '[foreach .peers.seeds[] as $item (""; "\($item.id)@\($item.address)")] | join(",")')
 
 # Start chain.
-usdxd start --x-crisis-skip-assert-invariants 
+usdtped start --x-crisis-skip-assert-invariants 
