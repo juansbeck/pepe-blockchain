@@ -16,8 +16,8 @@
 - Network name: usdtpe Network
 - chainId: 323
 - Symbol: usdtpe
-- RPC: rpc1.m20chain.com
-- Explorer: explorer.m20chain.com
+- RPC: in construction
+- Explorer: in construction
 
 # usdtpechain deployment script
 
